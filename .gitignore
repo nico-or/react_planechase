@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# probably will be replaced for scryfall api calls
+public/images/small
+public/images/large
+public/images/art_crop
+
+# raw api calls
+scryfall*
