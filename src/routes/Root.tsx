@@ -1,9 +1,9 @@
-function App() {
+function Root() {
   return (
     <>
       <h1>Planeshift</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default Root;
