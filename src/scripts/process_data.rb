@@ -59,11 +59,12 @@ IMAGE_FIELDS = %w[small normal large art_crop].freeze
 
 # scryfall entries
 new_entries = ENTRIES
+              .lazy
               .map { |entry| filter_hash(entry, CARD_FIELDS) }
               .map { |entry| filter_images(entry, IMAGE_FIELDS) }
               .map { |entry| divide_chaos_text(entry) }
               .map { |entry| add_slug(entry) }
-              #.map { |entry| add_rulings(entry) }
+# .map { |entry| add_rulings(entry) }
 
 WRITE_PATH = File.join('.', 'public', 'data', 'card_data.json')
 
