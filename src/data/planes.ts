@@ -14,6 +14,8 @@ type Deck = Array<Card>;
 enum ImageSize {
   SMALL,
   NORMAL,
+  LARGE,
+  ART_CROP,
 }
 
 function getPlanes(): Deck {
@@ -26,7 +28,7 @@ function getPlaneFromSlug(slug: string): Card | undefined {
 
 function getImagePath(card: Card, size: ImageSize): string {
   const join_paths = ({ slug }: Card, size: string) => {
-    const base_path = "../assets/images";
+    const base_path = ["..", "public", "images"].join("/");
     return [base_path, size, slug].join("/") + ".jpg";
   };
 
@@ -35,6 +37,10 @@ function getImagePath(card: Card, size: ImageSize): string {
       return join_paths(card, "small");
     case ImageSize.NORMAL:
       return join_paths(card, "normal");
+    case ImageSize.LARGE:
+      return join_paths(card, "large");
+    case ImageSize.ART_CROP:
+      return join_paths(card, "art_crop");
   }
 }
 
