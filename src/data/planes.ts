@@ -1,12 +1,18 @@
-import { planes } from "./planes_data";
+import data from "../../public/data/card_data.json";
+
+const planes = data.filter(({ type }) => type === "Plane") as Card[];
+const phenomenons = data.filter(({ type }) => type === "Phenomenon") as Card[];
+const sets: string[] = [...new Set(data.map(({ set }) => set))];
 
 type Card = {
   id: string;
   name: string;
   slug: string;
   oracle_text: string;
+  chaos_text: string;
   set: string;
   set_name: string;
+  type: string;
 };
 
 type Deck = Array<Card>;
@@ -18,12 +24,8 @@ enum ImageSize {
   ART_CROP,
 }
 
-function getPlanes(): Deck {
-  return planes;
-}
-
-function getPlaneFromSlug(slug: string): Card | undefined {
-  return planes.find((card) => card.slug === slug);
+function getCardBySlug(slug: string): Card | undefined {
+  return data.find((card) => card.slug === slug) as Card | undefined;
 }
 
 function getImagePath(card: Card, size: ImageSize): string {
@@ -44,12 +46,6 @@ function getImagePath(card: Card, size: ImageSize): string {
   }
 }
 
-function getPlaneBySlug(slug: string): Card | undefined {
-  return planes.find((card) => card.slug === slug);
-}
-
 export type { Card, Deck };
 
-export { planes } from "./planes_data";
-
-export { getPlanes, getPlaneFromSlug, getImagePath, getPlaneBySlug, ImageSize };
+export { planes, phenomenons, sets, getCardBySlug, getImagePath, ImageSize };
