@@ -1,22 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
+import Navbar from "../components/navbar";
 
 function Layout() {
   return (
-    <>
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <div className="container">
+      <Navbar />
+      <Outlet />
+    </div>
   );
 }
 

@@ -14,20 +14,34 @@ import PlanechaseLayout from "./layouts/Planechase";
 // Pages
 import Root from "./routes/Root";
 import NotFound from "./routes/NotFound";
-import Planes, { planesLoader } from "./routes/Planes";
-import Plane, { planeLoader } from "./routes/Plane";
-import PlanechaseGame from "./routes/PlanechaseGame";
+import Card, { cardLoader } from "./routes/cards/Card";
+import Cards, { planesLoader, phenomenonLoader } from "./routes/Cards";
+import Planechase from "./routes/games/Planechase";
+import BlindEternitiesMap from "./routes/games/BlindEternitiesMap";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Root />} />
-      <Route path="planechase" element={<PlanechaseLayout />}>
-        <Route index element={<PlanechaseGame />} />
+      <Route path="games" element={<PlanechaseLayout />}>
+        <Route path="planechase" element={<Planechase />} />
+        <Route path="blind-eternities-map" element={<BlindEternitiesMap />} />
       </Route>
       <Route path="planes">
-        <Route index element={<Planes />} loader={planesLoader} />
-        <Route path=":slug" element={<Plane />} loader={planeLoader} />
+        <Route
+          index
+          element={<Cards title={"Planes"} />}
+          loader={planesLoader}
+        />
+        <Route path=":slug" element={<Card />} loader={cardLoader} />
+      </Route>
+      <Route path="phenomenons">
+        <Route
+          index
+          element={<Cards title={"Phenomenons"} />}
+          loader={phenomenonLoader}
+        />
+        <Route path=":slug" element={<Card />} loader={cardLoader} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
