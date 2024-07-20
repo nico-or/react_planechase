@@ -63,8 +63,8 @@ new_entries = ENTRIES
               .map { |entry| filter_images(entry, IMAGE_FIELDS) }
               .map { |entry| divide_chaos_text(entry) }
               .map { |entry| add_slug(entry) }
-              .map { |entry| add_rulings(entry) }
+              #.map { |entry| add_rulings(entry) }
 
 WRITE_PATH = File.join('.', 'public', 'data', 'card_data.json')
 
-File.open(WRITE_PATH, 'w') { |f| f.write(JSON.generate(new_entries)) }
+File.open(WRITE_PATH, 'w') { |f| f.write(JSON.pretty_generate(new_entries)) }
