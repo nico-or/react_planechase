@@ -6,7 +6,7 @@ function Root() {
       <header>
         <hgroup>
           <h1>Planechase</h1>
-          <p>Manage planechase in the browser!</p>
+          <p>Manage planechase games in the browser!</p>
         </hgroup>
       </header>
       <main>
