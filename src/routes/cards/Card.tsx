@@ -13,7 +13,6 @@ function cardLoader({ params }: any): CardType | Response {
 
 function Card() {
   const card = useLoaderData() as CardType;
-  console.log(card);
 
   return (
     <>

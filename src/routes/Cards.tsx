@@ -32,8 +32,8 @@ function Cards({ title }: props) {
         <h1>{title}</h1>
       </header>
       <main>
-        {data.map((cards) => {
-          return <CardGrid cards={cards} />;
+        {data.map((cards, i) => {
+          return <CardGrid key={i} cards={cards} />;
         })}
       </main>
     </>

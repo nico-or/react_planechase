@@ -13,7 +13,7 @@ function Root() {
         <section>
           <h2>Game modes</h2>
           <div className="grid">
-            <Link to="/games/ planechase">
+            <Link to="/games/planechase">
               <article>
                 <hgroup>
                   <h2>Planechase</h2>

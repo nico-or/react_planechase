@@ -6,7 +6,7 @@ interface props {
 }
 
 function PlaneCard({ card }: props) {
-  const { name, slug, set_name } = card;
+  const { name, slug } = card;
   return (
     <Link to={slug}>
       <article>
